@@ -39,18 +39,18 @@ body{
 .message h2{
     font-size: 1.7rem;
     padding: 1rem 0;
-    background-color: rgb(71, 71, 71, 0.602);
+    background-color: rgb(235, 8, 63, 0.602);
 }
 
 .message p{
-    background-color: rgb(71, 71, 71, 0.602);
+    background-color: rgb(235, 8, 63, 0.602);
 }
 
 .formulario {
     width: 400px;
     padding: 1rem;
     margin: 2rem;
-    background-color: rgb(51, 51, 51, 0.602);
+    background-color: rgb(235, 8, 63, 0.602);
     text-align: center;
 }
 
@@ -93,11 +93,11 @@ body{
 .formulario input[type="submit"] {
     width: 60%;
     margin: auto;
-    border: solid thin white;
+    border: solid thin rgb(0, 0, 0);
     padding: .7rem;
     border-radius: 2rem;
     color: black;
-    background-color: brown;
+    background-color: rgb(255, 255, 255);
     font-weight: 600;
     margin-top: 3rem;
     font-size: .8rem;
