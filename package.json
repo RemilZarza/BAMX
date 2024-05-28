@@ -10,6 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "chart.js": "^4.4.3",
+    "csv-parser": "^3.0.0",
+    "d3": "^7.9.0",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-flash": "^0.0.2",
