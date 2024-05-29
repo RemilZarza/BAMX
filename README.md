@@ -38,13 +38,4 @@ DATABASE="Coloca el nombre de la base de datos donde vas a guardar tus usuarios"
 Para NodeJs yo tengo la version 21.7.1 y para MySQL la aplicacion de XAMPP.
 
 ### Configura la base de datos SQL
-El codigo que me funcionó a mi es este:
-
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    email VARCHAR(100) UNIQUE,
-    password VARCHAR(100)
-);
-
-Si deseas usar uno tú lo puedes hacer solo asegurate de que tenga las columnas de name, email y password.
+Importa las bases de datos que se encuentran en el repositorio, puedes cambiar el codigo para que le puedas cambiar el nombre a las base de datos. Si deseas no cambiarlo la base de datos con los usuarios debe de llamarse "myapp" y la de la grafica "pobreza"
