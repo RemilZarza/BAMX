@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const bcrypt = require('bcrypt');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
@@ -54,12 +55,13 @@ const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
+    database: process.env.DATABASE,
+    port:3306
 });
 
 db.connect((error) => {
     if (error) {
-        console.log(error);
+        console.log("Error de conexion en la base de datos: ",error);
     } else {
         console.log("Conectado a MySQL..");
     }
@@ -108,7 +110,6 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
     failureRedirect: '/login',
     failureFlash: true
 }));
-
 app.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -121,16 +122,20 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
             [newUser.name, newUser.email, newUser.password],
             (error, results) => {
                 if (error) {
-                    console.log(error);
-                    res.redirect('/register');
+                    console.log("Error registrando usuario:", error);
+                    req.flash('error', 'Error al registrar usuario.');
+                    return res.redirect('/register');
                 } else {
                     res.redirect('/login');
                 }
             });
-    } catch {
+    } catch (error) {
+        console.log("Error registrando usuario:", error);
+        req.flash('error', 'Error al registrar usuario.');
         res.redirect('/register');
     }
 });
+
 
 app.delete('/logout', (req, res, next) => {
     req.logOut((err) => {
