@@ -9,7 +9,6 @@ Desarrollar un software que haga más sencillo el proceso de aplicación al prog
 ###  Objetivo específicos:
 - Desarrollar una plataforma en la que se puedan capturar los datos de acuerdo al formato de BAMX
 - Desarrollar una base de datos en la que se puedan almacenar los datos
-- Desarrollar un mapa de calor en el que se puedan visualizar las áreas con mayor densidad de apoyados
 - Permitir el sencillo y ordenado acceso a la información de los aspirantes para darlos de alta o baja
 
 ###  Integrantes
@@ -22,3 +21,30 @@ Desarrollar un software que haga más sencillo el proceso de aplicación al prog
  - [Ernesto Carrasco](https://github.com/jesuscarra) 
  - [Ricardo Peña](https://github.com/RemilZarza)
  - [Ian Zepeda](https://github.com/I4NzG)
+
+## Instrucciones de Uso
+
+### Clonar el repositorio
+Puedes usar un git clone para clonar este repositorio a tu maquina en la ubicación que desees. Tambien crea un archivo ".env" en el que tenga lo siguiente:
+
+SESSION_SECRET="Coloca una contraseña aquí"
+DATABASE_HOST=localhost
+DATABASE_USER=root
+DATABASE_PASSWORD=
+DATABASE="Coloca el nombre de la base de datos donde vas a guardar tus usuarios"
+
+
+### Instala NodeJS y MySQL
+Para NodeJs yo tengo la version 21.7.1 y para MySQL la aplicacion de XAMPP.
+
+### Configura la base de datos SQL
+El codigo que me funcionó a mi es este:
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(100)
+);
+
+Si deseas usar uno tú lo puedes hacer solo asegurate de que tenga las columnas de name, email y password.
